@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Lunch Checker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/bootstrap.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+    <style>
+      .message { font-size: 1.3em; font-weight: bold; }
+      .form-control:focus{border-color: #5cb85c;  box-shadow: none; -webkit-box-shadow: none;} 
+      .has-error .form-control:focus{border-color: red;box-shadow: none; -webkit-box-shadow: none;}
+    </style>
+    <script src="https://code.angularjs.org/snapshot/angular.js"></script>
+    <script src="app.js"></script>
+  </head>
+<body ng-app="LunchCheck">
+    <form name = "lunchForm" novalidate>
+   <div class="container" ng-controller="LunchCheckController">
+     <h1>Lunch Checker</h1>
+         <div class="form-group">
+             <input id="lunchmenu" type="text" name="lunchmenu"
+             placeholder="list comma separated dishes you usually have for lunch"
+             class="form-control"
+             ng-model="lunchmenu"
+             ng-class="{greenfield:resultGreen, redfield:resultRed}">
+            <br>
+             <ul>
+               <li>Please enter upto 3 items comma-separated to be a good Lunch Menu</li>
+               <li>Entering comma consecutively will not be considered multiple items </li>
+               <li>e.g. Egg, bread,,Juice will be considered only 3 items</li>
+               <li>e.g. Egg, bread,,Juice, omelette will be considered 4 items</li>
+             </ul>
+         </div>
+         <div class="form-group">
+             <button class="btn btn-default" ng-click="checkiftoomuch()">Check If Too Much</button>
+         </div>
+         <br>
+         <div class="form-group message">
+           <span  ng-model="result"
+                  ng-class="{greenmessage:resultGreen, redmessage:resultRed}">{{result}}</span>
+        </div>
+         
+   </div>
+</form>
+</body>
+</html>
