@@ -1,0 +1,26 @@
+body {
+    padding: 50px;
+    font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  }
+  .greenfield
+  {
+    
+    border-color:green;
+    border-width:2px;
+  }
+  .redfield
+  {
+    border-color:red;
+    border-width:2px;
+  }
+  .greenmessage
+  {
+    font:14px "Lucida Grande", Helvetica, Arial, sans-serif ;
+    color: green;
+    
+  }
+  .redmessage
+  {
+    font:17px "Lucida Grande", Helvetica, Arial, sans-serif ;
+    color: red;
+  }
