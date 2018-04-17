@@ -14,17 +14,19 @@ function ToBuyController(ShoppingListCheckOffService)
     var tobuy=this;
 
     tobuy.items=ShoppingListCheckOffService.gettobuyItems();
-    tobuy.errorMessage="";
-    tobuy.Bought=function(itemindex){
-        ShoppingListCheckOffService.buyitem(itemindex);
+    tobuy.errorMessage=function(){
         if (tobuy.items.length==0)
         {
-            tobuy.errorMessage="Everything is bought!";
+            return "Everything is bought!";
         }
         else
         {
-            tobuy.errorMessage="";
+            return "";
         }
+
+    };
+    tobuy.Bought=function(itemindex){
+        ShoppingListCheckOffService.buyitem(itemindex);
     }
 
 }
@@ -43,9 +45,6 @@ function AlreadyBoughtController(ShoppingListCheckOffService)
         }
         else
             return "";
-
-
-
     };
 
     
