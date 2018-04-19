@@ -45,8 +45,6 @@
     function NarrowItDownDirectiveController() {
         var list = this;
 
-        //list.isFinding=false;
-
     }
 
 
@@ -77,6 +75,7 @@
         var loaderElement = element.find("div.loader");
         console.log(loaderElement);
         loaderElement.slideUp("slow");
+
     }
 
     NarrowItDownController.$inject = ['MenuSearchService', '$scope'];
@@ -86,7 +85,6 @@
         narrodown.itemtofind = "";
         narrodown.items = [];
         narrodown.title = "";
-        
         narrodown.isFinding=false;
         narrodown.narrowmeDown = function () {
 
@@ -94,6 +92,7 @@
             if (narrodown.itemtofind == "") {
                 narrodown.title = "Nothing Found!!";
                 narrodown.isFinding=false;
+
                 return;
             } else {
                 narrodown.title="Finding...";
@@ -113,18 +112,21 @@
                             narrodown.title = "getMatchedMenuItems Here is the found list (" + narrodown.items.length + ")";
                         }
                         narrodown.isFinding=false;
+
                     })
                     .catch(function (error) {
 
                         narrodown.title = "Here is the found list (0)";
                         console.log("error is ", error)
                         narrodown.isFinding=false;
+
                     });
             }
         }
         narrodown.removeItem = function (itemIndex) {
             this.items.splice(itemIndex, 1);
             this.title = "Here is the found list (" + this.items.length + ")";
+
         };
 
 
