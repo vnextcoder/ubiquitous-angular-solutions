@@ -31,17 +31,51 @@
             scope: {
                 items: '<',
                 title: '@title',
+                isFinding: '@isFinding',
                 onRemove: '&'
             },
             controller: NarrowItDownDirectiveController,
             controllerAs: 'list',
-            bindToController: true
+            bindToController: true,
+            link: NarrowItDownDirectiveLink
         };
         return ddo;
     }
 
     function NarrowItDownDirectiveController() {
         var list = this;
+
+    }
+
+
+    function NarrowItDownDirectiveLink(scope,element,attrs, controller)
+    {
+        scope.$watch('list.isFinding', function (newValue, oldValue) {
+        
+            if (newValue=="true") {
+                console.log("showing the loader");
+                displaymenuList(element);
+            }
+            else {
+                console.log("hiding the loader");
+                hidemenuList(element);
+            }
+        });
+    }
+
+    function displaymenuList(element)
+    {
+        var loaderElement = element.find("div.loader");
+        console.log(loaderElement);
+        loaderElement.slideDown("slow");
+    }
+
+    function hidemenuList(element)
+    {
+        var loaderElement = element.find("div.loader");
+        console.log(loaderElement);
+        loaderElement.slideUp("slow");
+
     }
 
     NarrowItDownController.$inject = ['MenuSearchService', '$scope'];
@@ -51,11 +85,14 @@
         narrodown.itemtofind = "";
         narrodown.items = [];
         narrodown.title = "";
-        narrodown.lastRemoved = "";
+        narrodown.isFinding=false;
         narrodown.narrowmeDown = function () {
 
+            narrodown.isFinding=true;
             if (narrodown.itemtofind == "") {
                 narrodown.title = "Nothing Found!!";
+                narrodown.isFinding=false;
+
                 return;
             } else {
                 narrodown.title="Finding...";
@@ -74,19 +111,22 @@
                             narrodown.items = [];
                             narrodown.title = "getMatchedMenuItems Here is the found list (" + narrodown.items.length + ")";
                         }
+                        narrodown.isFinding=false;
 
                     })
                     .catch(function (error) {
 
                         narrodown.title = "Here is the found list (0)";
                         console.log("error is ", error)
+                        narrodown.isFinding=false;
+
                     });
             }
         }
         narrodown.removeItem = function (itemIndex) {
-            narrodown.lastRemoved = "Last item removed was " + narrodown.items[itemIndex].name;
-            narrodown.items.splice(itemIndex, 1);
-            narrodown.title = "Here is the found list (" + narrodown.items.length + ")";
+            this.items.splice(itemIndex, 1);
+            this.title = "Here is the found list (" + this.items.length + ")";
+
         };
 
 
