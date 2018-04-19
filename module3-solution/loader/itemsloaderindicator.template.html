@@ -1,0 +1,17 @@
+
+  <div class="loader"></div>
+  <div>
+    <h3>{{ list.title }}</h3>
+    <ul class="list-unstyled">
+      <li class="row"
+          ng-repeat="item in list.items">
+        <div class="col-md-9">
+          <h4>{{item.name | titleCase}} ({{item.short_name }})</h4><span>{{item.description | capitalize}}</span>
+        </div><!--button ng-click="list.badRemove($index);">Bad Remove Item</button-->
+        <div class="col-md-3">
+          <button class="btn btn-warning"
+               ng-click="list.onRemove({index: $index});">Don't want this one!</button>
+        </div>
+      </li>
+    </ul>
+  </div>
