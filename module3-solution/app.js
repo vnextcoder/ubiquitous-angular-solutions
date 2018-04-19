@@ -92,7 +92,7 @@
             if (narrodown.itemtofind == "") {
                 narrodown.title = "Nothing Found!!";
                 narrodown.isFinding=false;
-
+                narrodown.items = [];
                 return;
             } else {
                 narrodown.title="Finding...";
