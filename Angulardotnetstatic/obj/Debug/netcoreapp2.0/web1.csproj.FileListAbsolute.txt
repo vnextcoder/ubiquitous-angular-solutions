@@ -1,0 +1,11 @@
+C:\Users\avin_\Source\angular\web1\bin\Debug\netcoreapp2.0\web1.deps.json
+C:\Users\avin_\Source\angular\web1\bin\Debug\netcoreapp2.0\web1.runtimeconfig.json
+C:\Users\avin_\Source\angular\web1\bin\Debug\netcoreapp2.0\web1.runtimeconfig.dev.json
+C:\Users\avin_\Source\angular\web1\bin\Debug\netcoreapp2.0\web1.dll
+C:\Users\avin_\Source\angular\web1\bin\Debug\netcoreapp2.0\web1.pdb
+C:\Users\avin_\Source\angular\web1\obj\Debug\netcoreapp2.0\web1.csprojAssemblyReference.cache
+C:\Users\avin_\Source\angular\web1\obj\Debug\netcoreapp2.0\web1.csproj.CoreCompileInputs.cache
+C:\Users\avin_\Source\angular\web1\obj\Debug\netcoreapp2.0\web1.AssemblyInfoInputs.cache
+C:\Users\avin_\Source\angular\web1\obj\Debug\netcoreapp2.0\web1.AssemblyInfo.cs
+C:\Users\avin_\Source\angular\web1\obj\Debug\netcoreapp2.0\web1.dll
+C:\Users\avin_\Source\angular\web1\obj\Debug\netcoreapp2.0\web1.pdb

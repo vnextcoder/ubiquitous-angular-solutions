@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="https://code.angularjs.org/snapshot/angular.js"></script>
+    <style>
+            table, th , td {
+               border: 1px solid grey;
+               border-collapse: collapse;
+               padding: 5px;
+            }
+            
+            table tr:nth-child(odd) {
+               background-color: #f2f2f2;
+            }
+         
+            table tr:nth-child(even) {
+               background-color: #ffffff;
+            }
+         </style>
+</head>
+<body >
+
+    <div ng-app="mainApp2" ng-controller="studentController">
+        <p>Enter first name <input type="text" ng-model="student.firstname"></p>
+        <p>Enter last name <input type="txt" ng-model="student.lastname"></p>
+        <br>
+        Welcome in lowercase {{student.fullname() | lowercase }}<br>
+        Welcome in uppercase {{student.fullname() | uppercase }}<br>
+        Your Fees is {{student.fees | currency}}
+
+    <p>subject filter <input type="text" ng-model="subjectname"></p>
+        Your subjects are : 
+        <ul>
+            <li ng-repeat="subject in student.subjects | filter: subjectname">
+                {{subject.name + ' you got ' + subject.marks}}
+            </li>
+
+        </ol>
+        <p>Below is Tabular data 
+
+
+                <table>
+                        <tr>
+                           <th>Name</th>
+                           <th>Marks</th>
+                        </tr>
+                        
+                        <tr ng-repeat = "subject in student.subjects | filter: subjectname">
+                           <td>{{ subject.name }}</td>
+                           <td>{{ subject.marks }}</td>
+                        </tr>
+                     </table>
+
+        </p>
+
+    </div>
+
+    
+    <script src="mainApp.js"></script>
+    <script src="studentController.js"></script>
+        
+</body>
+</html>

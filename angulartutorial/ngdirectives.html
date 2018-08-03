@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <script src = "http://code.angularjs.org/snapshot/angular.js"></script>
+    
+</head>
+<body ng-app="" ng-init="countries = [{locale:'en-US',name:'United States'}, {locale:'en-GB',name:'United Kingdom'}, {locale:'en-FR',name:'France'}]"> 
+    <div ng-init="capitals = [{city:'washington',country:'United States'}, {city:'london',country:'United Kingdom'}, {city:'paris',country:'France'}]">
+    <h1>Sample Directives</h1>
+
+    <p>Enter your name : <input type="text" ng-model="name"></p>
+    <p>Hello <span ng-bind="name"></span> ! </p>
+    <p>List of countries with Locale</p>
+    <ol>
+        <li ng-repeat="country in countries">
+            {{country.name + '(' + country.locale + ')' }}
+        </li>
+    </ol>
+    <p>List of capital cities with countries</p>
+    <ul>
+        <li ng-repeat="capital in capitals">
+            {{capital.city + '=' + capital.country }}
+        </li>
+
+    </ul>
+</div>
+    
+</body>
+</html>

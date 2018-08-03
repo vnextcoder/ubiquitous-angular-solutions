@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>AngularJS Expressions</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="http://code.angularjs.org/snapshot/angular.js"></script>
+    
+</head>
+<body>
+    <h1>Sample Application</h1>
+
+    <div ng-app = "" ng-init = "quantity = 23;cost = 30; student = {firstname:'Mahesh',lastname:'Parashar',rollno:101};marks = [80,90,75,73,60]">
+         <p>Hello {{student.firstname + " " + student.lastname}}!</p>
+         <p>Expense on Books : {{cost * quantity}} Rs</p>
+         <p>Roll No: {{student.rollno}}</p>
+         <p>Marks(Math): {{marks[3]}}</p>
+    </div>
+      
+
+</body>
+</html>

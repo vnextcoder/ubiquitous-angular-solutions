@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Narrow Down Your Menu Choice</title>
+  <meta content="width=device-width, initial-scale=1"
+        name="viewport">
+  <link href="styles/bootstrap.min.css"
+        rel="stylesheet">
+  <link href="styles/styles.css"
+        rel="stylesheet">
+  <script src="angular.min.js"></script>
+  <script src="app.js"></script>
+</head>
+<body ng-app="NarrowItDownApp">
+  <div class="container"
+       ng-controller="NarrowItDownController as narrodown">
+    <h2>Narrow Down Your Chinese Menu Choice</h2>
+    <div class="form-group">
+      <input class="form-control"
+           ng-model="narrodown.itemtofind"
+           placeholder="search term"
+           type="text">
+    </div>
+    <div class="form-group narrow-button">
+      <button class="btn btn-primary"
+           ng-click="narrodown.narrowmeDown();">Narrow It Down For Me!</button>
+    </div><br>
+    <!-- found-items should be implemented as a component -->
+     <!-- <found-items found-items="...." on-remove="...."></found-items>  -->
+     <!-- <found-items found-items="narrodown.itemsfound"
+                 on-remove="narrodown.removeItem(index)"
+                 title="{{narrodown.title}}"></found-items>bad-remove="list.removeItem" -->
+    <div class="loader"></div>
+    <div>
+      <h3>{{narrodown.title}}</h3>
+      <ol>
+        <li ng-repeat="item in narrodown.items">
+          <h4>{{item.name}} ({{item.short_name}})</h4><span>{{item.description}}</span> <!-- <button ng-click="list.badRemove($index);">Bad Remove Item</button> -->
+           <button ng-click="narrodown.removeItem($index);">Remove Item</button>
+        </li>
+      </ol>
+    </div>
+  </div>
+</body>
+</html>

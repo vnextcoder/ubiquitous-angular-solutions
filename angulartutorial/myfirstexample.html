@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>my first example</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
+</head>
+<body ng-app="myapp">
+    <div ng-controller="mydataController"    >
+        <h2>Welcome {{helloTo.Title}} to my Data Controller </h2>
+    </div>
+    <div ng-controller="myTextController">
+        <h2> Welcome to {{helloTo.Address}}</h2>
+    </div>    
+
+    <div id="newmodule" ng-app="mynewmodule" ng-controller="mydefaultcontroller">
+        <h3>hello <span ng-bind="helloTo.Title"></span></h3>
+
+        <h3>hello <span ng-bind="hello[0]"></span></h3>
+        <h3>hello <span ng-bind="hello[1]"></span></h3>
+    </div>
+    <script>
+        angular.module("myapp", [])
+        .controller("mydataController", function ($scope) {
+            $scope.helloTo={};
+            $scope.helloTo.Title="Angular avinash";
+        })
+        .controller("myTextController", function($scope){
+
+            $scope.helloTo={};
+            $scope.helloTo.Address="Faridabad";
+        });
+
+        angular.module("mynewmodule", [] )
+        .controller("mydefaultcontroller", function ($scope){
+            $scope.helloTo={};
+            $scope.helloTo.Title="avinash";
+            $scope.hello=[];
+            $scope.hello[0]="item111";
+            $scope.hello[1]="item222";
+
+        });
+        
+        angular.bootstrap(document.getElementById("newmodule"), ['mynewmodule']);
+    </script>
+</body>
+</html>
